@@ -5,8 +5,6 @@
 using namespace std;
 
 
-
-
 HashTableQP::HashTableQP(int size){
     for(int i =0; i < hashTableSize; i++){
         buckets[i] = -1;
@@ -53,7 +51,7 @@ void HashTableQP::insert(int x){
         cout<<x<<" is already included in the hash table. \n";
     }
     else{
-        cout<<x<<" could not be inserted in the hash tbale. \n";
+        cout<<x<<" could not be inserted in the hash table with quadratic probing. \n";
     }
 }
 
