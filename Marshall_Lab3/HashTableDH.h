@@ -1,17 +1,17 @@
 // Jacob Marshall // 2876707 // EECS560 // Lab2 // 17 Sept 2018 //
-#ifndef HASHTABLEQP_H
-#define HASHTABLEQP_H
+#ifndef HASHTABLEDH_H
+#define HASHTABLEDH_H
 #include<string>
 #include<iostream>
 using namespace std;
 
-class HashTableQP{
+class HashTableDH{
   public:
     //Contrcutor of HashTable, creates a HashTable with the passed in size
-    HashTableQP(int size);
+    HashTableDH(int size);
 
     //Destructor, deletes the HashTable
-    ~HashTableQP();
+    ~HashTableDH();
 
     //inserts a given string into the hashTable, first checking to see if it already exists, and then hashes the string and inserts it into the correct list. Returns true if insetion is succesful
     void insert(int x);

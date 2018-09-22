@@ -1,32 +1,32 @@
 // Jacob Marshall // 2876707 // EECS560 // Lab2 // 17 Sept 2018 //
 
 #include<math.h>
-#include "HashTableQP.h"
+#include "HashTableDH.h"
 using namespace std;
 
 
 
 
-HashTableQP::HashTableQP(int size){
+HashTableDH::HashTableDH(int size){
     for(int i =0; i < hashTableSize; i++){
         buckets[i] = -1;
         flags[i] = false;
     }
 }
 
-HashTableQP::~HashTableQP(){
+HashTableDH::~HashTableDH(){
     delete[] buckets;
 }
 
 
-double HashTableQP::getLoadFactor(){
+double HashTableDH::getLoadFactor(){
 
 }
 
-void HashTableQP::deleteEntry(int x){
+void HashTableDH::deleteEntry(int x){
     int index = hash(x);
     if(find(x) == false){
-        cout<<x<<" could not be found with quadratic probing, could not be deleted";
+        cout<<x<<" could not be found with doulbe hashing, could not be deleted";
     }
     else{
         buckets[index] = -1;
@@ -34,8 +34,8 @@ void HashTableQP::deleteEntry(int x){
 
 }
 
-void HashTableQP::printAll(){
-    cout<<"Hash table with quadratic probing: \n";
+void HashTableDH::printAll(){
+    cout<<"Hash table with double hashing: \n";
     for(int i =0; i < hashTableSize; i++){
         if(buckets[i] != -1){
             cout<<"Bucket "<<i<<": "<<buckets[i]<<"\n";
@@ -43,7 +43,7 @@ void HashTableQP::printAll(){
     }
 }
 
-void HashTableQP::insert(int x){
+void HashTableDH::insert(int x){
     int index = hash(x);
     if(buckets[index] == -1){
         buckets[index] = x;
@@ -53,11 +53,11 @@ void HashTableQP::insert(int x){
         cout<<x<<" is already included in the hash table. \n";
     }
     else{
-        cout<<x<<" could not be inserted in the hash tbale. \n";
+        cout<<x<<" could not be inserted in the hash table with doulbe hashing. \n";
     }
 }
 
-bool HashTableQP::find(int x){
+bool HashTableDH::find(int x){
     int index = hash(x);
     if(index == -1){
         return false;
@@ -75,11 +75,14 @@ bool HashTableQP::find(int x){
 
 }
 
-int HashTableQP::hash(int x){
+int HashTableDH::hash(int x){
   int hashNum = 0;
   int i = 0;
   int hashMax = 10;
+  int prime = 13;
   int indexToSearch = x%hashTableSize;
+  int hash1 = indexToSearch;
+  int hash2 = (prime - (x%prime));
   for(int i = 0; i < hashMax + 1; i++){
       if(i == hashMax){
           indexToSearch = -1;
@@ -94,8 +97,14 @@ int HashTableQP::hash(int x){
           break;
       }
       else{
-          indexToSearch = (int(indexToSearch + pow(i, 2)))%hashTableSize;
+          if(i == 0){
+              indexToSearch = hash2;
+          }
+          else{
+              indexToSearch = (hash1 + i*hash2)%hashTableSize;
+          }
       }
   }
   return indexToSearch;
 }
+
