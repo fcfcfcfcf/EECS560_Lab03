@@ -13,7 +13,5 @@ HashTableQP.o: HashTableQP.h HashTableQP.cpp
 HashTableDH.o: HashTableDH.h HashTableDH.cpp
 	g++ -std=c++11 -g -Wall -c HashTableDH.cpp
 
-
-
 clean:
 	rm *.o Lab2

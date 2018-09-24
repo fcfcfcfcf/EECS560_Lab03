@@ -20,7 +20,14 @@ HashTableDH::~HashTableDH(){
 
 
 double HashTableDH::getLoadFactor(){
-
+    double loadFactor = 0.0;
+    for(int i =0; i < hashTableSize; i++){
+        if(buckets[i] != -1){
+            loadFactor = loadFactor + 1.0;
+        }
+    }
+    loadFactor = loadFactor/hashTableSize;
+    return loadFactor;
 }
 
 void HashTableDH::deleteEntry(int x){

@@ -10,7 +10,6 @@ using namespace std;
 
 Executive::Executive(string theFile){
   fileToOpen = theFile;
-  cout<<"Welcome\n";
   run();
 
 }
@@ -23,15 +22,16 @@ void Executive::run(){
   HashTableDH* htdh = new HashTableDH(53);
   HashTableQP* htqp = new HashTableQP(53);
   string newData;
-
+  int intnewData;
   while (inFile >> newData) {
-    htqp->insert(newData);
-    htdh->insert(newData);
+    intnewData = stoi(newData);
+    htqp->insert(intnewData);
+    htdh->insert(intnewData);
   }
   bool quit;
   quit = false;
   while(quit == false){
-    cout<<"Please choose one of the following commands: \n";
+    cout<<"\nPlease choose one of the following commands: \n";
     cout<<"1-Insert\n";
     cout<<"2-Delete\n";
     cout<<"3-Find\n";
@@ -47,6 +47,8 @@ void Executive::run(){
       int intinsertion = stoi(insertion);
       htqp->insert(intinsertion);
       htdh->insert(intinsertion);
+      cout<<"Load factor of hash table with quadratic probing is: "<<htqp->getLoadFactor()<<"\n"; 
+      cout<<"Load factor of hash table with double hashing is: "<<htdh->getLoadFactor()<<"\n";  
     }
     if(command == "2"){
       cout<<"Enter a string to delete:\n>";
@@ -55,6 +57,8 @@ void Executive::run(){
       int intdeletion = stoi(deletion);
       htqp->deleteEntry(intdeletion);
       htdh->deleteEntry(intdeletion);
+      cout<<"Load factor of hash table with quadratic probing is: "<<htqp->getLoadFactor()<<"\n"; 
+      cout<<"Load factor of hash table with double hashing is: "<<htdh->getLoadFactor()<<"\n"; 
     }
     if(command == "3"){
       cout<<"Enter a string to be found:\n>";
