@@ -1,5 +1,5 @@
-Lab2: main.o Executive.o HashTableQP.o HashTableDH.o
-	g++ -std=c++11 -g -Wall main.o Executive.o HashTableQP.o HashTableDH.o -o Lab2
+Lab3: main.o Executive.o HashTableQP.o HashTableDH.o
+	g++ -std=c++11 -g -Wall main.o Executive.o HashTableQP.o HashTableDH.o -o Lab3
 
 main.o: main.cpp Executive.h HashTableQP.h HashTableDH.h
 	g++ -std=c++11 -g -Wall -c main.cpp
@@ -14,4 +14,4 @@ HashTableDH.o: HashTableDH.h HashTableDH.cpp
 	g++ -std=c++11 -g -Wall -c HashTableDH.cpp
 
 clean:
-	rm *.o Lab2
+	rm *.o Lab3

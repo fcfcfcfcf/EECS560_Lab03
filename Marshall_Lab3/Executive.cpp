@@ -1,4 +1,4 @@
-// Jacob Marshall // 2876707 // EECS560 // Lab3 // 17 Sept 2018 //
+// Jacob Marshall // 2876707 // EECS560 // Lab3 // 24 Sept 2018 //
 #include<iostream>
 #include<fstream>
 #include<string>
@@ -89,6 +89,8 @@ void Executive::run(){
     }
 
   }
+  delete htqp;
+  delete htdh;
 
 
 }

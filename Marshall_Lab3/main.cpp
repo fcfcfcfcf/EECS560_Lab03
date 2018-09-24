@@ -1,4 +1,4 @@
-// Jacob Marshall // 2876707 // EECS560 // Lab2 // 17 Sept 2018 //
+// Jacob Marshall // 2876707 // EECS560 // Lab3 // 24 Sept 2018 //
 #include <iostream>
 #include"Executive.h"
 #include<string>

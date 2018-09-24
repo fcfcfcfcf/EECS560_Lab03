@@ -1,4 +1,4 @@
-// Jacob Marshall // 2876707 // EECS560 // Lab2 // 17 Sept 2018 //
+// Jacob Marshall // 2876707 // EECS560 // Lab3 // 24 Sept 2018 //
 
 #include<math.h>
 #include "HashTableQP.h"
@@ -31,7 +31,7 @@ double HashTableQP::getLoadFactor(){
 void HashTableQP::deleteEntry(int x){
     int index = hash(x);
     if(find(x) == false){
-        cout<<x<<" could not be found with quadratic probing, could not be deleted";
+        cout<<x<<" could not be found with quadratic probing, could not be deleted \n";
     }
     else{
         buckets[index] = -1;
